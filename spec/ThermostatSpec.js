@@ -33,6 +33,15 @@ describe ('Thermostat', function(){
 		it('cannot go below minimum temperature', function() {
 			expect(thermostat.decreaseTemperatureBy(11)).toEqual(new Error("Cannot exceed minimum temperature of 10"));
 		});
+
+		it('with powersaver on, temp cannot exceed 25 degrees', function() {
+			expect(thermostat.increaseTemperatureBy(6)).toEqual(new Error("Power saving mode is ON. Cannot exceed 25 degrees"));
+		});
+
+		it('with powersaver off, temp cannot exceed 32 degrees', function() {
+			thermostat.powerSaverButton("off");
+			expect(thermostat.increaseTemperatureBy(13)).toEqual(new Error("Cannot exceed 32 degrees"));
+		});		
 	});
 
 	describe('custom options', function(){
