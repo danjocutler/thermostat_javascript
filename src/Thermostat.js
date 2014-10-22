@@ -1,5 +1,6 @@
 function Thermostat(){
 	this.temperature = 20;
+	this.minimumTemperature = 10;
 	this.isPowerSaverOn = true;
 };
 
@@ -13,7 +14,8 @@ Thermostat.prototype.increaseTemperatureBy = function(degrees) {
 	this.temperature += degrees
 };
 Thermostat.prototype.decreaseTemperatureBy = function(degrees) {
-	this.temperature -= degrees
+	this.temperature -= degrees;
+	if(this.temperature < 10) return new Error("Cannot exceed minimum temperature of 10");
 };
 
 Thermostat.prototype.powerSaverButton = function(onOff) {
@@ -21,6 +23,6 @@ Thermostat.prototype.powerSaverButton = function(onOff) {
 	if (onOff === "on") return this.isPowerSaverOn;
 };
 
-	// if (powerSaverButton(off)) return this.isPowerSaverOn = false;
-	// else
-	// return true;
+// Thermostat.prototype.minimumTemperature = function() {
+// 	if this.decreaseTemperature >
+// };
