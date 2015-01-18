@@ -30,10 +30,3 @@ Thermostat.prototype.powerSaverButton = function(onOff) {
 Thermostat.prototype.resetToDefaultTemperature = function() {
 	return this.temperature = 20
 };
-
-	// if(this.temperature > this.saverMaxTemp && this.isPowerSaverOn === true) return this.saverMaxTemp;
-	// else if(this.temperature > this.maxTemp && this.isPowerSaverOn === false) return this.maxTemp;
-	// else return this.temperature;
-
-	// if(this.temperature < this.minTemp) return this.minTemp;
-	// else return this.temperature;	
